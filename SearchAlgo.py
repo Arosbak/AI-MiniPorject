@@ -41,30 +41,6 @@ class Node:
             self.depth = parent.depth + 1
 
 
-def breadth_first_search(initial_state, goal_state):
-    """Breadth-first search algorithm expands all child nodes of a parent node at each level in search for a state which
-  matches the specified goal state. In this implementation, a list is treated as a queue by always removing elements
-  from the front and appending elements to the back.
-  """
-    # BrianS Solution
-    frontier = [initial_state]
-    reached = []
-    solution = [], []
-
-    if initial_state == goal_state:
-        return construct_path(Node(initial_state, None, None), initial_state)
-    frontier = [Node(initial_state, None, None)] # This where the the Queue is
-    reached = set()
-
-    while frontier:
-        parent = frontier.pop(0)
-        for child in successors(parent):
-            if child.state == goal_state:
-                return construct_path(child, initial_state)
-            if child.state not in reached:
-                reached.add(child.state)
-                frontier.append(child)
-    return [], []
 
 def depth_first_search(initial_state, goal_state):
     """Depth-first search algorithm first expands the deepest child node of a parent node at each level in search for a state which
