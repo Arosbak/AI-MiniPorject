@@ -12,7 +12,6 @@ Represent the state of the world on the starting side of the river as a tuple, <
 m is the number of missionaries,
 c is the number of cannibals, and
 b is the presence (or not) of the boat.
-
 A solution is a sequence of actions that when applied to the state lead to the goal state of <0,0,0>. Actions are applied
 to each state in an alternating manner of subtraction and addition, corresponding to the missionaries and cannibals either
 leaving from or arriving at the starting side of the river, respectively. At no point can the state on either side of the river
@@ -90,8 +89,7 @@ def is_valid_state(child_state):
     """Determines whether or not an action results in a valid state by considering its effect on both sides of the river.
     A state is valid if on both sides of the river, an action does not result in (1) there being fewer than zero missionaries
     and zero cannibals or more than 3 missionaries and 3 cannibals and (2) more cannibals than missionaries if there is
-    at least one missionary.
-    """
+    at least one missionary. """
     # starting side of river
     if not (0 <= child_state[0] <= 3) or not (0 <= child_state[1] <= 3):
         return False
@@ -107,8 +105,7 @@ def is_valid_state(child_state):
 
 def construct_path(final_node, initial_state):
     """Constructs the path from the initial state to the goal state by working backwards through parents starting from
-    the goal node.
-    """
+    the goal node. """
     state_path = []  # initialize a path to hold states which comprise a solution
     action_path = []  # initialize a path to hold actions which comprise a solution
     while final_node.state != initial_state:
