@@ -28,6 +28,8 @@ path cost:                  cost(p) i.e., number of nodes in path from start to 
 """
 
 
+
+
 class Node:
     """A Node class with instance attributes suggested for use in search algorithms by Russell and Norvig (2010)."""
     # constructor for defining the instance attributes
@@ -86,6 +88,7 @@ def get_child_state(parent, action):
     return child_state
 
 
+
 def is_valid_state(child_state):
     """Determines whether or not an action results in a valid state by considering its effect on both sides of the river.
     A state is valid if on both sides of the river, an action does not result in (1) there being fewer than zero missionaries
@@ -121,13 +124,9 @@ def construct_path(final_node, initial_state):
 
 
 def main():
-    initial_state = (3, 3, 1)
+    initial_state = (3,3,1)
     goal_state = (0, 0, 0)
     print("Initial state:", initial_state, "Goal state:", goal_state)
-    state_path, action_path = breadth_first_search(initial_state, goal_state)
-    print("Breadth-first search results:")
-    print("States:", state_path)
-    print("Actions:", action_path)
     state_path, action_path = depth_first_search(initial_state, goal_state)
     print("Depth-first search results:")
     print("States:", state_path)
